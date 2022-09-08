@@ -1,2 +1,2 @@
-# C---Faculdade
+# C++ Faculdade
  
