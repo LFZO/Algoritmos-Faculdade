@@ -1,9 +1,0 @@
-# depslib dependency file v1.0
-1661990380 source:e:\unidade de usb\algoritmo-almir\c++\exerc_list\main.cpp
-	<iostream>
-	<iomanip>
-	<locale.h>
-	<stdio.h>
-	<stdlib.h>
-	<conio.h>
-
