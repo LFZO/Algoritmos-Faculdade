@@ -4,66 +4,87 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
 int k;
 int cont = 0;
-const int QtdParque = 2;
-const int QtdPlanta = 2;
+const int QtdParque = 4;
+const int QtdPlanta = 4;
 
 
 
-enum PARQUE {Regia, Botanico, Buracao,Povo};
-enum PLANTA {Eucalipto, Pinus, Flamboyant, Praia};
+enum PARQUE {Regia = 0, Botanico, Buracao, Povo};
+enum PLANTA {Eucalipto = 0, Pinus, Flamboyant, Praia};
 
 string nparque[4] = {"Vitoria Regia", "Jardim Botanico", "Parque Buracao", "Parque do Povo"};
-string planta [4] = {"Eucalipto", "Pinus", "Flamboyant", "Praia"};
+string planta [4] = {"Eucaliptos", "Pinus", "Flamboyants", "Praias"};
 
 int parque[QtdParque][QtdPlanta];
 
 int main()
-
 {
+
+
+    cout << "\n-----------------------------------------------------------------------------------\n";
+
+    //ler de forma automatica as especies de arvores nos seus devidos parques
+    unsigned seed = time(0);
+    srand(seed);
     setlocale(LC_ALL, "pt-BR.UTF-8");
     for(int i = 0 ; i < QtdParque; i++ ){
           for(int j = 0 ; j < QtdPlanta ; j++ ){
-                cout << "\nLeia: ";
-                cin >> parque[i][j];
+                parque[i][j] = 1+rand()%250;
+                cout << "\n\tNo parque "<< nparque[i] << " possuem " << parque[i][j] << " " << planta[j];
           }
+          cout << "\n";
     }
 
 
+
+    //informa os parques com menos de 200 especies de arvores
+    cout << "\n-----------------------------------------------------------------------------------\n";
+    cout << "\nPossuem parques com menos de 200 arvores? \n";
+    cout << "\n-----------------------------------------------------------------------------------\n";
     for(int i = 0 ; i < QtdParque; i++ ){
         for(int j = 0 ; j < QtdPlanta; j++ ){
             if(parque[i][j] < 200){
-                nparque[cont] ;
-                cout << nparque[cont] << " | ";
+                cout << "\t" << nparque[i] << " possuem "<< parque[i][j] << " " << planta[j] << "\n" ;
                 cont++;
 
             }
         }
+            cout << "\n";
     }
+
     if(cont > 0){
-        cout << "\nA quantia de parques que possuem menos de 200 arvores sao: " << cont << "\n";
+        cout << "\n-----------------------------------------------------------------------------------\n";
+        cout << "\nA quantia de especies de arvores abaixo de 200: " << cont << "\n";
+        cout << "\n-----------------------------------------------------------------------------------\n";
     }else{
-        cout << "\nNao possuem parques com menos de 200 arvores\n";
+        cout << "\n-----------------------------------------------------------------------------------\n";
+        cout << "\nNao possuem  menos de 200 especies de arrvores \n";
+        cout << "\n-----------------------------------------------------------------------------------\n";
     }
-     cont = 0;
-     cout << "Informe qual parque: "; cin >> k;
-     for(int j = 0 ; j < QtdPlanta; j++ ){
+
+    //informa um parque em especifico para saber
+    cont = 0;
+    cout << "\n\nInforme um parque para saber se possuem mais de 50 arvores: "; cin >> k; cout << "\n";
+    for(int j = 0 ; j < QtdPlanta; j++ ){
         if(parque[k][j] > 50){
-            planta[cont];
-            cout << planta[cont] << " | ";
+            cout << "\n\t" << planta[j] ;
             cont++;
-
-        }
-     }
-
-      if(cont > 0){
-        cout << "\n a quantia de especies com mais de 50 arvores: " << cont << "\n";
-    }else{
-        cout << "\nNao possuem especies com mais de 50 arvores\n";
+            }
     }
 
+
+
+    if(cont > 0){
+        cout << "\n\nA quantia de especies de arvores a cima de 50 sao: " << cont << "\n";
+    }else{
+        cout << "\nNao possuem especies de arovres a cima de 50\n";
+    }
+    cout << "\n-----------------------------------------------------------------------------------\n";
 }
