@@ -15,10 +15,6 @@ const int QtdParque = 4;
 const int QtdPlanta = 4;
 
 
-
-enum PARQUE {Regia = 0, Botanico, Buracao, Povo};
-enum PLANTA {Eucalipto = 0, Pinus, Flamboyant, Praia};
-
 string nparque[4] = {"Vitoria Regia", "Jardim Botanico", "Parque Buracao", "Parque do Povo"};
 string planta [4] = {"Eucaliptos", "Pinus", "Flamboyants", "Praias"};
 
@@ -69,7 +65,7 @@ int main()
         cout << "\n-----------------------------------------------------------------------------------\n";
     }
 
-    //informa um parque em especifico para saber
+    //informa um parque em especifico e mostra as arvores com quantidade acima de 50
     cont = 0;
     cout << "\n\nInforme um parque para saber se possuem mais de 50 arvores: "; cin >> k; cout << "\n";
     for(int j = 0 ; j < QtdPlanta; j++ ){
@@ -80,7 +76,7 @@ int main()
     }
 
 
-
+    //informa a quantia de arvores acima de 50
     if(cont > 0){
         cout << "\n\nA quantia de especies de arvores a cima de 50 sao: " << cont << "\n";
     }else{
