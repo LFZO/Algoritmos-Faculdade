@@ -16,7 +16,7 @@ struct Aluno{
 };
 
 //definição de constantes
-const int N=4;
+const int N=10;
 
 //Definição de variáveis
 Aluno lista[N];
@@ -37,18 +37,18 @@ int main(){
     char op = 'x';
     while (op != '0'){
         system("cls");
-        cout << "\t\tPrograma exemplo Lista Sequencia Aluno\n";
-        cout << "\t\tMenu de opções\n\n";
-        cout << "\t\t0 - Sair\n";
-        cout << "\t\t1 - Inserir Nó no fim da lista\n";
-        cout << "\t\t2 - Imprimir a lista\n";
+        cout << "\t\tLista Sequencial de Alunos de tamanho: " << N << "\n\n";
+        cout << "\t\t\t|Menu de opções|\n";
+        cout << "\t\t[0] - Sair\n";
+        cout << "\t\t[1] - Inserir Nó no fim da lista\n";
+        cout << "\t\t[2] - Imprimir a lista\n";
 
         fflush(stdin);
-        cout << "\n\n\t\tInforme a sua escolha:";
+        cout << "\n\n\t\tInforme a sua escolha: ";
         op = getchar();
 
         switch(op){
-            case '0': {cout << "\n\nBom descanso!!!\n\n"; break;}
+            case '0': {cout << "\n\nSaindo...\n\n"; break;}
             case '1': {lls1_IsereFim(); break;}
             case '2': {lls6_ImprimirLista(); break;}
             default : {cout << "Opção invalida"; break;}
@@ -63,9 +63,9 @@ void lls1_IsereFim(){
     system("cls");
 
     cout << "\t\tPrograma lista sequencial Aluno \n\n";
-    cout << "\t\t Inserir um novo NÓ no fim da lista\n\n";
+    cout << "\t\tInserir um novo NÓ no fim da lista\n\n";
     if((fim+1) < N){
-        cout << "\tInforme o ID: "; cin >> val.id;
+        val.id +=1;
         fflush(stdin);
         cout << "\tInforme o nome: "; getline(cin, val.nome);
         fflush(stdin);
@@ -87,7 +87,6 @@ void lls1_IsereFim(){
     }else{
         cout << "\n\nLista Cheia - Overflow\n";
     }
-        system("pause");
 }
 
 void lls6_ImprimirLista(){
