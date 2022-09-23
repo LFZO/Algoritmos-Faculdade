@@ -4,8 +4,11 @@
 #include <cstdlib>
 #include <iomanip>
 #include <clocale>
+#include <bits/stdc++.h>
 using namespace std;
 
+
+# define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 //definição de tipo
 
 struct Aluno{
@@ -38,6 +41,8 @@ int main(){
     while (op != '0'){
         system("cls");
         cout << "\t\tLista Sequencial de Alunos de tamanho: " << N << "\n\n";
+
+
         cout << "\t\t\t|Menu de opções|\n";
         cout << "\t\t[0] - Sair\n";
         cout << "\t\t[1] - Inserir Nó no fim da lista\n";
@@ -62,7 +67,7 @@ void lls1_IsereFim(){
     sinal = false;
     system("cls");
 
-    cout << "\t\tPrograma lista sequencial Aluno \n\n";
+    cout << "\t\tLista Sequencial de Alunos de tamanho: " << N << "\n\n";
     cout << "\t\tInserir um novo NÓ no fim da lista\n\n";
     if((fim+1) < N){
         val.id +=1;
@@ -92,7 +97,7 @@ void lls1_IsereFim(){
 void lls6_ImprimirLista(){
     sinal = false;
     system("cls");
-    cout << "\t\tPrograma lista sequencial Aluno \n\n";
+    cout << "\t\tLista Sequencial de Alunos de tamanho: " << N << "\n\n";
     cout << "\t\tImprimir a lista\n\n";
     if(fim > -1){
         cout << setw(5) << "ID" << setw(22) << "NOME" << setw(15) << "CURSO" << setw(8) << "Nota" << endl;
