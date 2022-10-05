@@ -37,7 +37,7 @@ void inserirInicio();
 void inserirFim();
 void imprimirLista();
 void removerPrimeiro();
-void consultarId();
+
 
 int main(){
     fim = -1 ; //inicia a lista vazia
@@ -54,7 +54,7 @@ int main(){
         cout << "\t\t[2] - [Inserir aluno no fim da lista]\n";
         cout << "\t\t[3] - [Remover primeiro aluno da lista]\n";
         cout << "\t\t[4] - [Imprimir a lista]\n";
-        cout << "\t\t[5] - [Imprimir por ID]\n";
+
 
         fflush(stdin);
         cout << "\n\n\t\tInforme a sua escolha: ";
@@ -66,7 +66,6 @@ int main(){
             case '2': {inserirFim(); break;}
             case '3': {removerPrimeiro(); break;}
             case '4': {imprimirLista(); break;}
-            case '5': {consultarId(); break;}
             default : {cout << "Opção invalida"; break;}
         }
         system("pause");
@@ -154,36 +153,6 @@ void imprimirLista(){
             val = lista[aux];
             cout << setw(5) << val.id << setw(22) << val.nome << setw(15) << val.curso << setw(8) << val.nota << endl;
             aux++;
-        }
-        sinal = true;
-    }else{
-        cout << "\n\nLista Vazia\n";
-    }
-}
-
-void consultarId(){
-	sinal = false;
-    system("cls");
-    cout << "\t\tLista Sequencial de Alunos de tamanho: " << N << "\n\n";
-    cout << "\t\tConsultar por ID\n\n";
-    if(fim > -1){
-
-        cout<< "\t\tInforme o ID: ";cin >> k;
-    	fflush(stdin);
-
-        cout << setw(5) << "ID" << setw(22) << "NOME" << setw(15) << "CURSO" << setw(8) << "NOTA" << endl;
-        for(int i=0; i<50; i++) cout << "-";
-        cout << endl;
-
-        aux = 0;
-        while(aux <= fim){
-        	if(k == lista[aux].id){
-            	cout << setw(5) << lista[aux].id << setw(22) << lista[aux].nome << setw(15) << lista[aux].curso << setw(8) << lista[aux].nota << endl;
-            }else{
-            	cout << "\n\nId de Usuário não encontrado\n";
-            	break;
-			}
-			aux++;
         }
         sinal = true;
     }else{
