@@ -30,7 +30,7 @@ string Nome, livro;
 int fim;
 char conf;
 bool sinal;
-int aux;
+int aux, x, y;
 int k;
 
 
@@ -43,6 +43,7 @@ void imprimirPares();
 void imprimirInversa();
 void removerK();
 void alterarNo();
+void classificarOrdemCres();
 
 
 int main(){
@@ -63,8 +64,8 @@ int main(){
         cout << "\t\t[5] - [Imprimir posicoes pares]\n";
         cout << "\t\t[6] - [Imprimir lista inversa]\n";
         cout << "\t\t[7] - [Remover na posicao (K+3)]\n";
-        cout << "\t\t[8] - [Alterar nó do livro de nome Y]\n";
-
+        cout << "\t\t[8] - [Alterar no do livro de nome Y]\n";
+        cout << "\t\t[9] - [Classificar lista por ordem crescente de Pag]\n";
 
         fflush(stdin);
         cout << "\n\n\t\tInforme a sua escolha: ";
@@ -80,6 +81,7 @@ int main(){
             case '6': {imprimirInversa();break;}
             case '7': {removerK();break;}
             case '8': {alterarNo();break;}
+            case '9': {classificarOrdemCres();break;}
         }
         system("pause");
     }
@@ -315,7 +317,7 @@ void alterarNo(){
                 fflush(stdin);
                 cout << "\t\tEsta Reservado: "; cin >> val.reservado;
                 fflush(stdin);
-                cout << "\t\tConfia (S/N): "; cin >> conf;
+                cout << "\t\tConfirma (S/N): "; cin >> conf;
                 conf = toupper(conf);
                 if(conf == 'S'){
                   lista[aux] = val;
@@ -327,3 +329,29 @@ void alterarNo(){
         }else{
         cout << "\t\tLISTA VAZIA\n\n";}
     }
+
+void classificarOrdemCres(){
+    sinal = false;
+    system("cls");
+    cout << "\t\tLista Sequencial de Livros\n\n";
+    cout << "\t\tClassificar a lista em ordem crescente de pag\n\n";
+    if(fim > -1){
+        cout << "\t\tConfirma (S/N): "; cin >> conf;
+                conf = toupper(conf);
+                if(conf == 'S'){
+                for(y=0;y<=fim;y++){
+                    for(x=0;x<=fim;x++){
+                            if(lista[x].pag > lista[y].pag){
+                                val = lista[y];
+                                lista[y] = lista[x];
+                                lista[x] = val;
+                            }
+
+                    }
+                }
+                }else{
+                cout << "/t/tNAO CONFIRMADO";}
+    }else{
+    cout << "\t\tLISTA VAZIA\n\n";
+    }
+}
